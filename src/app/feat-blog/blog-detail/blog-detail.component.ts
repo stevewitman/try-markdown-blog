@@ -1,32 +1,27 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Observable, of } from 'rxjs';
-// import * as marked from 'marked';
 
 import { BlogService } from '../blog.service';
+import { MarkdownService } from '../markdown.service';
 
 @Component({
   selector: 'app-blog-detail',
   templateUrl: './blog-detail.component.html',
-  styleUrls: ['./blog-detail.component.scss']
+  styleUrls: ['./blog-detail.component.scss'],
 })
 export class BlogDetailComponent implements OnInit {
-  blogMarkdown$: Observable<String> = of('');
-  blogParsed: string = '';
+  blogMarkdown$: Observable<string> = of('');
+  blogHTML$: Observable<string> = of('');
 
   constructor(
     private blogService: BlogService,
-    // private markedParser: marked.Parser
+    private markdownService: MarkdownService
   ) {}
 
   ngOnInit() {
-    const marked = require('marked');
-    this.blogMarkdown$ = this.blogService.getBlog('01');
-    this.blogMarkdown$.subscribe(data => {
-      console.log('data:', data);
-      this.blogParsed = marked.parse(data)
-      console.log('parsed:', this.blogParsed);
-      
-    })
+    this.blogMarkdown$ = this.blogService.getBlog('marked-js');
+    // this.blogMarkdown$ = this.blogService.getBlog('sample');
+    this.blogHTML$ = this.markdownService.parseMarkdown(this.blogMarkdown$);
   }
 }

@@ -1,19 +1,146 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --color-primary: #039BE5;
+  --color-primary-very-light: #039ae511;
+  --color-primary-light: #4FC3F7;
+  --color-accent: #FFD600;
+  --color-warn: #FF6D00;
+  --color-warn-very-light: #FF6D0011;
+  --color-warn-light: #FFB74D;
+  --color-red: #CB2B39;
+
+  --color-gray-1: #101010;
+  --color-gray-2: #202020;
+  --color-gray-3: #303030;
+  --color-gray-4: #404040;
+  --color-gray-5: #505050;
+  --color-gray-6: #606060;
+  --color-gray-7: #707070;
+  --color-gray-8: #808080;
+  --color-gray-9: #909090;
+  --color-gray-A: #A0A0A0;
+  --color-gray-B: #B0B0B0;
+  --color-gray-C: #C0C0C0;
+  --color-gray-D: #D0D0D0;
+  --color-gray-E: #E0E0E0;
+  --color-gray-F: #F0F0F0;
+}
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+img {
+  width: 100%;
+}
 
 // .blog > h1 {
 //   color: green;
 // }
 .blog {
+  padding: 36px;
+  max-width: 924px;
+  // font-size: 24px;
+  h1, h2, h3, h4, h5, h6, p, pre, blockquote {
+    margin-top: 0;
+    margin-bottom: 30px
+  }
+  a {
+    text-decoration: none;
+  }
   h1 {
-      color: green;
-    }
+    font-size: 48px;
+    color: var(--color-warn);
+    letter-spacing: 1px;
+    font-weight: 500;
+  }
+  h2 {
+    color: var(--color-gray-1);
+    font-size: 38px;
+    font-weight: 500;
+  }
+  h4 { // subtitle
+    font-size: 29px;
+    font-weight: 200;
+    line-height: 40px;
+  }
 
-table,
-th,
-td {
-  border: 1px solid;
-}
+  h5 { // using for terminal commands
+    font-family: Consolas, monospace;
+    font-size: 19px;
+    font-weight: 400;
+    padding: 20px;
+    border-radius: 6px;
+    background-color: var(--color-gray-4);
+    color: white;
+    &:before {
+      color: #77F94E;
+      font-weight: 900;
+      content: "\203A";
+      padding-right: 10px;
+    }
+  }
+  h6 { // using for file names on code blocks
+    font-size: 19px;
+    font-weight: 400;
+    line-height: 38px;
+    padding: 10px 20px;
+    border-radius: 6px 6px 0 0;
+    background-color: var(--color-primary);
+    color: white;
+    margin-bottom: 0;
+  }
+  p {
+    position: relative;
+    top: -9px;
+    font-size: 19px;
+    font-weight: 400;
+    line-height: 36px;
+    color: var(--color-gray-3);
+    margin-bottom: 20px
+  }
+  pre {
+    font-family: Consolas, monospace;
+    border: 1px solid var(--color-gray-E);
+    padding: 1rem;
+    background-color: var(--color-primary-very-light);
+    white-space: pre-wrap;
+    border-radius: 0 0 6px 6px;
+    font-size: 19px;
+    margin-bottom: 40px
+  }
+  blockquote {
+    margin: 0 0 30px 0;
+    padding: 40px 30px 1px 30px;
+    border-left: 8px solid var(--color-warn);
+    background-color: var(--color-warn-very-light);
+  }
+  table,
+  th,
+  td {
+    border: 1px solid;
+  }
+  ul {
+    position: relative;
+    top: -9px;
+  }
+  li>p {
+    position: relative;
+    top: 0px;
+  }
+  img {
+    max-width: 864px;
+    padding: 30px;
+  }
+
 } 
+
+
+
+// * {
+//   box-sizing: border-box; 
+//   outline: 3px solid limegreen !important;
+// }
+
+// * {
+//   box-sizing: border-box; 
+//   background: rgb(0 100 0 / 0.1) !important;
+// }
