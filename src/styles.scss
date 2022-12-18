@@ -1,11 +1,11 @@
 :root {
   --color-primary: #039BE5;
-  --color-primary-very-light: #039ae511;
   --color-primary-light: #4FC3F7;
+  --color-primary-very-light: #039ae511;
   --color-accent: #FFD600;
   --color-warn: #FF6D00;
+  --color-warn-light: #FF6D0088;
   --color-warn-very-light: #FF6D0011;
-  --color-warn-light: #FFB74D;
   --color-red: #CB2B39;
 
   --color-gray-1: #101010;
@@ -26,47 +26,95 @@
 }
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
-img {
-  width: 100%;
+body { 
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  padding: 0px;
+  margin: 0px;
 }
 
-// .blog > h1 {
-//   color: green;
-// }
-.blog {
+.markdown {
+  // H1 - Title
+  // H2 - Heading
+  // H3 - Sub-Heading
+  // H4 - Code block filename / title
+  // H5 - Terminal commands
+  // H6 - Tag
+  // *...* - Highlight
   padding: 36px;
-  max-width: 924px;
+  max-width: 800px;
+  &:first-child {
+    color: var(--color-gray-1);
+  }
+  img {
+    margin-right: 16px;
+    margin-bottom: 8px;
+    float: left;
+  }
   // font-size: 24px;
-  h1, h2, h3, h4, h5, h6, p, pre, blockquote {
+  h1, h2, h3, h4, h5, h6, p, ul, pre, blockquote, hr {
     margin-top: 0;
-    margin-bottom: 30px
+    margin-bottom: 24px;
+  }
+  p+h4,
+  p+h5,
+  p+h6,
+  p+code,
+  p+blockquote {
+    margin-top: 20px;
   }
   a {
     text-decoration: none;
   }
   h1 {
-    font-size: 48px;
-    color: var(--color-warn);
+    font-size: 40px;
+    // color: var(--color-warn);
     letter-spacing: 1px;
     font-weight: 500;
   }
   h2 {
     color: var(--color-gray-1);
-    font-size: 38px;
+    font-size: 32px;
     font-weight: 500;
+    margin-top: 32px;
+    margin-bottom: 20px;
   }
-  h4 { // subtitle
-    font-size: 29px;
-    font-weight: 200;
-    line-height: 40px;
+  h3 { 
+    font-size: 24px;
+    margin-top: 28px;
+    margin-bottom: 18px;
   }
-
+  h4 {
+    // using for file names on code blocks
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 32px;
+    padding: 6px 20px;
+    border-radius: 6px 6px 0 0;
+    background-color: var(--color-primary);
+    color: white;
+    margin-bottom: 0;
+  }
+  pre {
+    font-family: Consolas, monospace;
+    letter-spacing: 0.5px;
+    border: 1px solid var(--color-gray-E);
+    padding: 1rem;
+    background-color: var(--color-primary-very-light);
+    white-space: pre-wrap;
+    border-radius: 6px;
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 24px
+  }
+  h4+pre {
+    border-radius: 0 0 6px 6px;
+  }
   h5 { // using for terminal commands
     font-family: Consolas, monospace;
-    font-size: 19px;
+    font-size: 16px;
     font-weight: 400;
+    letter-spacing: 0.5px;
     padding: 20px;
     border-radius: 6px;
     background-color: var(--color-gray-4);
@@ -78,38 +126,98 @@ img {
       padding-right: 10px;
     }
   }
-  h6 { // using for file names on code blocks
-    font-size: 19px;
+  h6 { // Tags
+    display: inline-block;
+    font-size: 16px;
     font-weight: 400;
-    line-height: 38px;
-    padding: 10px 20px;
-    border-radius: 6px 6px 0 0;
-    background-color: var(--color-primary);
+    line-height: 30px;
+    padding: 3px 18px;
+    border-radius: 18px;
+    background-color: var(--color-warn);
     color: white;
-    margin-bottom: 0;
+    margin: 0px 3px 12px 3px;
+    a {
+      color: white;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+    &:first-of-type {
+      // Author name
+      display: block;
+      position: relative;
+      top: -12px;
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 20px;
+      letter-spacing: 1px;
+      padding: 0;
+      margin: 0;
+      border-radius: 0;
+      background-color: transparent;
+      a {
+        color: var(--color-primary);
+        // &:hover {
+        //   text-decoration: underline;
+        // } 
+      }
+    }    
+    &:nth-of-type(2) {
+      // Date posted
+      display: block;
+      position: relative;
+      top: -14px;
+      font-size: 16px;
+      line-height: 30px;
+      padding: 0;
+      margin: 0;
+      border-radius: 0;
+      background-color: transparent;
+      color: var(--color-gray-A);
+    }
+    &:last-of-type {
+      // "All Tags" link
+      background-color: var(--color-primary-light);
+      color:#404040;
+      margin-bottom: 30px;
+    }
   }
+  // h6>a {
+  //   color: white;
+  //   &:first-of-type {
+  //     color: var(--color-primary);
+  //   }
+  //   &:hover {
+  //     text-decoration: underline;
+  //   }
+
+  // }
   p {
-    position: relative;
-    top: -9px;
-    font-size: 19px;
+    font-size: 16px;
     font-weight: 400;
-    line-height: 36px;
+    line-height: 30px;
     color: var(--color-gray-3);
-    margin-bottom: 20px
+    margin-bottom: 16px;
+    code {
+      font-family: Consolas, monospace;
+      letter-spacing: 0.5px;
+      padding: 6px;
+      border-radius: 5px;
+      background-color: var(--color-gray-F);
+      color: var(--color-primary);
+    }
   }
-  pre {
-    font-family: Consolas, monospace;
-    border: 1px solid var(--color-gray-E);
-    padding: 1rem;
-    background-color: var(--color-primary-very-light);
-    white-space: pre-wrap;
-    border-radius: 0 0 6px 6px;
-    font-size: 19px;
-    margin-bottom: 40px
+  li {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 30px;
+    color: var(--color-gray-3);
+    margin-bottom: 16px;
   }
+
   blockquote {
     margin: 0 0 30px 0;
-    padding: 40px 30px 1px 30px;
+    padding: 24px 24px 1px 24px;
     border-left: 8px solid var(--color-warn);
     background-color: var(--color-warn-very-light);
   }
@@ -118,22 +226,18 @@ img {
   td {
     border: 1px solid;
   }
-  ul {
-    position: relative;
-    top: -9px;
+  em {
+    font-style: normal;
+    padding: 1px 3px;
+    border-radius: 3px;
+    background-color: #ffff66;
+    color: black;
   }
-  li>p {
-    position: relative;
-    top: 0px;
+  hr {
+    margin-top: 24px;
+    border-top: 1px solid var(--color-gray-C);
   }
-  img {
-    max-width: 864px;
-    padding: 30px;
-  }
-
 } 
-
-
 
 // * {
 //   box-sizing: border-box; 
@@ -144,3 +248,14 @@ img {
 //   box-sizing: border-box; 
 //   background: rgb(0 100 0 / 0.1) !important;
 // }
+
+.page-container-wide-sidebar {
+  display: flex;
+  flex-direction: row;
+  max-width: 1680px;
+  min-height: calc(100vh - 100px);
+  // padding: 16px 24px;
+  // @media screen and (max-width: 599px) {
+  //   padding: 0px;
+  // }
+}

@@ -1,1 +1,15 @@
-<p>blog-list works!</p>
+
+<div class="page-container-wide-sidebar">
+  <div class="nav">
+    test
+  </div>
+  <div class="content-main">
+    <router-outlet></router-outlet>
+  </div>
+  <div class="content-sidebar-right">
+    <button mat-stroked-button [routerLink]="['/blog/marked-js']">Blog With Markdown</button>
+    <button mat-stroked-button [routerLink]="['/blog/standalone-lazy-load']">Lazy Loading Standalone</button>
+    <button mat-stroked-button [routerLink]="['/blog/routing-nested-router-outlets']">Nested Router Outlets</button>
+    <button mat-stroked-button [routerLink]="['/blog/routing-route-parameters']">Route Parameters</button>
+  </div>
+</div>`

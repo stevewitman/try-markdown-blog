@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 
 import { Observable, of } from 'rxjs';
 
@@ -13,15 +14,23 @@ import { MarkdownService } from '../markdown.service';
 export class BlogDetailComponent implements OnInit {
   blogMarkdown$: Observable<string> = of('');
   blogHTML$: Observable<string> = of('');
+  id: string | null = '';
 
   constructor(
+    private route: ActivatedRoute,
     private blogService: BlogService,
     private markdownService: MarkdownService
   ) {}
 
   ngOnInit() {
-    this.blogMarkdown$ = this.blogService.getBlog('marked-js');
-    // this.blogMarkdown$ = this.blogService.getBlog('sample');
-    this.blogHTML$ = this.markdownService.parseMarkdown(this.blogMarkdown$);
+    // this.id = this.route.snapshot.paramMap.get('id');
+    this.route.paramMap.subscribe((params: ParamMap) => {
+      this.id = params.get('id');
+      console.log('param id:', this.id);
+      this.blogMarkdown$ = this.blogService.getBlog(this.id!);
+      this.blogHTML$ = this.markdownService.parseMarkdown(this.blogMarkdown$);
+    });
+    
+    
   }
 }

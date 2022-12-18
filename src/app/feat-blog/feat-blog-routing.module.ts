@@ -8,10 +8,12 @@ const routes: Routes = [
   {
     path: '',
     component: BlogListComponent,
-  },
-  {
-    path: ':id',
-    component: BlogDetailComponent
+    children: [
+      {
+          path: ':id',
+          component: BlogDetailComponent
+      }
+    ]
   }
 ];
 

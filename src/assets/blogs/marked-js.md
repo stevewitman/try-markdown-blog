@@ -1,13 +1,17 @@
-### 2022-12-14
+![Avatar](/assets/images/steve-50.png)
+
+
+###### [Steve Witman](https://stevewitman.com)
+###### Posted Dec 14, 2022 (revised Dec 17, 2022)
 
 # Create blog posts in your Angular app with Markdown
 
-#### In this post we use the MarkedJS library to convert markdown files to HTML and display in an Angular app.
 
+###### [Markdown](https://nba.com)
 
+###### [All Tags](https://angular.io)
 
-
-
+> In this post we use the MarkedJS library to convert markdown files to HTML and display in an Angular app.
 
 ## Install MarkedJS Library
 
@@ -15,9 +19,9 @@
 
 ## Create a Markdown File
 
-For simplicity sake, in this example we will put a sample markdown file in the ```assets``` folder.
+For simplicity sake, in this example we will put a *sample markdown file in the `assets` folder.
 
-###### assets/blogs/sample.md
+#### assets/blogs/sample.md
 
 ```md
 # H1
@@ -36,9 +40,11 @@ This is a paragraph.
 
 ## Create Blog Service
 
+JUNK test paragraph
+
 ##### ng g s blog
 
-###### blog.service.ts
+#### blog.service.ts
 
 ```ts
 import { Injectable } from '@angular/core';
@@ -64,7 +70,7 @@ export class BlogService {
 
 ##### ng g s markdown
 
-###### markdown.service.ts
+#### markdown.service.ts
 
 ```ts
 import { Injectable } from '@angular/core';
@@ -92,7 +98,7 @@ export class MarkdownService {
 
 ## Notes
 
-- In this example we put our markdown files are in the ```assets``` folder. This is not scalable because everything in the assets folder becomes part of the initial load bundle. In a production application we would retrieve markdown files from a database or consider server side rendering (SSR).
+- In this example we put our markdown files are in the `assets` folder. This is not scalable because everything in the assets folder becomes part of the initial load bundle. In a production application we would retrieve markdown files from a database or consider server side rendering (SSR).
 
 - Using 3rd party libraries often have negative impacts including increased bundle size, limited library maintenance, security vulnerabilities, dependency comatibility issues, and other future upgrade complications.
 
@@ -104,14 +110,33 @@ export class MarkdownService {
 
 - [MarkedJS GitHub](https://github.com/markedjs/marked)
 
--> document
-  -> block_quote
-       paragraph
-         "Lorem ipsum dolor\nsit amet."
-    -> list (type=bullet tight=true bullet_char=-)
-         list_item
-           paragraph
-             "Qui *quodsi iracundia*"
-      -> list_item
-        -> paragraph
-             "aliquando id"
+---
+
+## Another test section
+
+In this example we put our markdown files are in the `assets` folder. This is not scalable because everything in the assets folder becomes part of the initial load bundle. In a production application we would retrieve markdown files from a database or consider server side rendering (SSR).
+
+In a production application we would retrieve markdown files from a database or consider server side rendering (SSR).
+
+### This is a subtitle
+
+- In a production application we would retrieve markdown files from a database or consider server side rendering (SSR).
+
+- In this example we put our markdown files are in the `assets` folder. This is not scalable because everything in the assets folder becomes part of the initial load bundle.
+
+JUNK test paragraph
+
+JUNK test paragraph
+
+> In this example we put our markdown files are in the `assets` folder. This is not scalable because everything in the assets folder becomes part of the initial load bundle.
+
+JUNK test paragraph
+
+JUNK test paragraph
+
+- In this example we put our markdown files are in the `assets` folder. This is not scalable because everything in the assets folder becomes part of the initial load bundle.
+
+
+```
+111111111122222222223333333333111111111122222222223333333333
+  ```
